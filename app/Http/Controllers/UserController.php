@@ -37,7 +37,7 @@ class UserController extends Controller
         $collections = Collection::all();
 
         $products_sale = Product::orderBy('created_at', 'DESC')->where('sale', '>', 0)->where('status', 1)->get();
-        dd($products_sale);
+
         $products_new = Product::orderBy('created_at', 'DESC')->where('new', '=', 1)->where('status', 1)->get();
         $products = Product::orderBy('created_at', 'DESC')->where('status', 1)->paginate(16);
         $articles = Article::all();
@@ -45,6 +45,7 @@ class UserController extends Controller
         if (Session::has('user')){
             $userClient = Session::get('user');
         }
+        dd('anh hoang');
         return view('user.flower.home')->with('categories', $categories)->with('products', $products)->with('collections', $collections)->with(['products_sale' => $products_sale, 'products_new' => $products_new, 'countItemCart' => $countItemCart, 'content' => $content, 'total' => $total,
             'articles' => $articles,
             'user' =>$userClient
