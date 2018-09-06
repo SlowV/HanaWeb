@@ -34,8 +34,8 @@ class UserController extends Controller
         $countItemCart = Cart::count();
         $total = Cart::subtotal();
         $categories = Category::all();
-        dd($categories);
         $collections = Collection::all();
+        dd($collections);
         $products_sale = Product::orderBy('created_at', 'DESC')->where('sale', '>', 0)->where('status', 1)->get();
         $products_new = Product::orderBy('created_at', 'DESC')->where('new', '=', 1)->where('status', 1)->get();
         $products = Product::orderBy('created_at', 'DESC')->where('status', 1)->paginate(16);
