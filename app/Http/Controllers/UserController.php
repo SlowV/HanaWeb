@@ -28,12 +28,12 @@ class UserController extends Controller
     // Lấy ra sản phẩm từ database trả về view bên User
     public function getIndexUser()
     {
-        dd(1);
+
         // Gio hang
         $content = Cart::content();
         $countItemCart = Cart::count();
         $total = Cart::subtotal();
-
+        dd(1);
         $categories = Category::all();
         $collections = Collection::all();
         $products_sale = Product::orderBy('created_at', 'DESC')->where('sale', '>', 0)->where('status', 1)->get();
