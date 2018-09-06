@@ -28,6 +28,7 @@ class UserController extends Controller
     // Lấy ra sản phẩm từ database trả về view bên User
     public function getIndexUser()
     {
+        dd(1);
         // Gio hang
         $content = Cart::content();
         $countItemCart = Cart::count();
