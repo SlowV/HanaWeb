@@ -1,4 +1,4 @@
-{{dd('anh hoang')}}
+{{--{{dd('anh hoang')}}--}}
 @extends('user.layouts.master')
 
 @section('page-title', 'Trang chủ - Hana Store')
@@ -75,318 +75,321 @@
 
 @section('content')
 
-    <!-- Slide1 --> <!--Slide ảnh-->
-    <section class="slide1">
-        @include('user.flower.slide')
-    </section>
+    <div>
+        chay luon di.
+    </div>
+    {{--<!-- Slide1 --> <!--Slide ảnh-->--}}
+    {{--<section class="slide1">--}}
+        {{--@include('user.flower.slide')--}}
+    {{--</section>--}}
 
-    <!--Danh sách sản phẩm-->
-    <section class="product bgpink p-t-45 p-b-40">
-        <div class="container">
-            <div class="sec-title p-b-60">
-                <h3 class="m-text5 t-left">
-                    Sản phẩm
-                </h3>
-            </div>
-            <div class="row">
-                <!--Mỗi cục div trong row là 1 sản phẩm-->
-                @foreach($products as $item)
-                    <div class=" p-l-15 p-r-15 col-md-3 mt-3">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w img-product-home of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">
-                                <img src="{{$item->images}}" alt="IMG-PRODUCT"
-                                     style="height: 350px;object-fit: cover;">
-                                <div class="block2-overlay trans-0-5">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
+    {{--<!--Danh sách sản phẩm-->--}}
+    {{--<section class="product bgpink p-t-45 p-b-40">--}}
+        {{--<div class="container">--}}
+            {{--<div class="sec-title p-b-60">--}}
+                {{--<h3 class="m-text5 t-left">--}}
+                    {{--Sản phẩm--}}
+                {{--</h3>--}}
+            {{--</div>--}}
+            {{--<div class="row">--}}
+                {{--<!--Mỗi cục div trong row là 1 sản phẩm-->--}}
+                {{--@foreach($products as $item)--}}
+                    {{--<div class=" p-l-15 p-r-15 col-md-3 mt-3">--}}
+                        {{--<!-- Block2 -->--}}
+                        {{--<div class="block2">--}}
+                            {{--<div class="block2-img wrap-pic-w img-product-home of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">--}}
+                                {{--<img src="{{$item->images}}" alt="IMG-PRODUCT"--}}
+                                     {{--style="height: 350px;object-fit: cover;">--}}
+                                {{--<div class="block2-overlay trans-0-5">--}}
+                                    {{--<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">--}}
+                                        {{--<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>--}}
+                                        {{--<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>--}}
+                                    {{--</a>--}}
 
-                                    <div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"
-                                         id="add-cart-{{$item->id}}">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-5">
-                                            Thêm vào giỏ
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                                    {{--<div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"--}}
+                                         {{--id="add-cart-{{$item->id}}">--}}
+                                        {{--<!-- Button -->--}}
+                                        {{--<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-5">--}}
+                                            {{--Thêm vào giỏ--}}
+                                        {{--</button>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="block2-txt p-t-20">
-                                <a href="/user/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$item->name}}
-                                </a>
-                                @if($item->sale == 0)
-                                    <span class="block2-price m-text6 p-r-5">
-                                        {{number_format($item->price,0,',','.')}} <span
-                                                style="text-transform: lowercase">vnđ</span>
-                                    </span>
-                                @else
-                                    <span class="block2-price m-text6 p-r-5 text-decoration">
-                                        {{number_format($item->price,0,',','.')}} <span
-                                                style="text-transform: lowercase">vnđ</span>
-                                    </span>
-                                    <span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">
-                                        {{$item->discountPriceString}}
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="row">
-                <div class="col-md-12 mt-5">
-                    {{$products->links()}}
-                </div>
-            </div>
-        </div>
-    </section>
+                            {{--<div class="block2-txt p-t-20">--}}
+                                {{--<a href="/user/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5">--}}
+                                    {{--{{$item->name}}--}}
+                                {{--</a>--}}
+                                {{--@if($item->sale == 0)--}}
+                                    {{--<span class="block2-price m-text6 p-r-5">--}}
+                                        {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                {{--style="text-transform: lowercase">vnđ</span>--}}
+                                    {{--</span>--}}
+                                {{--@else--}}
+                                    {{--<span class="block2-price m-text6 p-r-5 text-decoration">--}}
+                                        {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                {{--style="text-transform: lowercase">vnđ</span>--}}
+                                    {{--</span>--}}
+                                    {{--<span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">--}}
+                                        {{--{{$item->discountPriceString}}--}}
+                                    {{--</span>--}}
+                                {{--@endif--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-12 mt-5">--}}
+                    {{--{{$products->links()}}--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
-    <!-- Product Sale-->
-    @if(Count($products_sale) > 0)
-        <section class="product-sale bgwhite p-t-45 p-b-80">
-            <div class="container">
-                <div class="sec-title p-b-40">
-                    <h3 class="m-text5 t-left">
-                        Sản phẩm khuyến mãi
-                    </h3>
-                </div>
+    {{--<!-- Product Sale-->--}}
+    {{--@if(Count($products_sale) > 0)--}}
+        {{--<section class="product-sale bgwhite p-t-45 p-b-80">--}}
+            {{--<div class="container">--}}
+                {{--<div class="sec-title p-b-40">--}}
+                    {{--<h3 class="m-text5 t-left">--}}
+                        {{--Sản phẩm khuyến mãi--}}
+                    {{--</h3>--}}
+                {{--</div>--}}
 
-                <!-- Slide2 -->
-                <div class="wrap-slick2">
-                    <div class="slick2">
-                        @foreach($products_sale as $item)
-                            <div class="item-slick2 p-l-15 p-r-15">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">
-                                        <img src="{{$item->images}}" alt="IMG-PRODUCT"
-                                             style="height: 350px;object-fit: cover;">
-                                        <div class="block2-overlay trans-0-5">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
+                {{--<!-- Slide2 -->--}}
+                {{--<div class="wrap-slick2">--}}
+                    {{--<div class="slick2">--}}
+                        {{--@foreach($products_sale as $item)--}}
+                            {{--<div class="item-slick2 p-l-15 p-r-15">--}}
+                                {{--<!-- Block2 -->--}}
+                                {{--<div class="block2">--}}
+                                    {{--<div class="block2-img wrap-pic-w of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">--}}
+                                        {{--<img src="{{$item->images}}" alt="IMG-PRODUCT"--}}
+                                             {{--style="height: 350px;object-fit: cover;">--}}
+                                        {{--<div class="block2-overlay trans-0-5">--}}
+                                            {{--<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">--}}
+                                                {{--<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>--}}
+                                                {{--<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>--}}
+                                            {{--</a>--}}
 
-                                            <div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"
-                                                 id="add-cart-{{$item->id}}">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-5">
-                                                    Thêm vào giỏ
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            {{--<div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"--}}
+                                                 {{--id="add-cart-{{$item->id}}">--}}
+                                                {{--<!-- Button -->--}}
+                                                {{--<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-5">--}}
+                                                    {{--Thêm vào giỏ--}}
+                                                {{--</button>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
-                                    <div class="block2-txt p-t-20">
-                                        <a href="/user/product/{{$item->id}}"
-                                           class="block2-name dis-block s-text3 p-b-5">
-                                            {{$item->name}}
-                                        </a>
-                                        @if($item->sale == 0)
-                                            <span class="block2-price m-text6 p-r-5">
-                                                {{number_format($item->price,0,',','.')}} <span
-                                                        style="text-transform: lowercase">vnđ</span>
-                                            </span>
-                                        @else
-                                            <span class="block2-price m-text6 p-r-5 text-decoration">
-                                                {{number_format($item->price,0,',','.')}} <span
-                                                        style="text-transform: lowercase">vnđ</span>
-                                            </span>
-                                            <span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">
-                                                {{$item->discountPriceString}}
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-    @else
-        <section class="product-sale bgwhite p-t-45 p-b-80">
-            <div class="container">
-                <div class="sec-title p-b-40">
-                    <h3 class="m-text5 t-left">
-                        Sản phẩm khuyến mãi
-                    </h3>
-                </div>
-                <div class="alert alert-success">
-                    Hiện không có sản phẩm khuyến mãi nào!
-                </div>
-            </div>
-        </section>
-    @endif
+                                    {{--<div class="block2-txt p-t-20">--}}
+                                        {{--<a href="/user/product/{{$item->id}}"--}}
+                                           {{--class="block2-name dis-block s-text3 p-b-5">--}}
+                                            {{--{{$item->name}}--}}
+                                        {{--</a>--}}
+                                        {{--@if($item->sale == 0)--}}
+                                            {{--<span class="block2-price m-text6 p-r-5">--}}
+                                                {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                        {{--style="text-transform: lowercase">vnđ</span>--}}
+                                            {{--</span>--}}
+                                        {{--@else--}}
+                                            {{--<span class="block2-price m-text6 p-r-5 text-decoration">--}}
+                                                {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                        {{--style="text-transform: lowercase">vnđ</span>--}}
+                                            {{--</span>--}}
+                                            {{--<span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">--}}
+                                                {{--{{$item->discountPriceString}}--}}
+                                            {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
+    {{--@else--}}
+        {{--<section class="product-sale bgwhite p-t-45 p-b-80">--}}
+            {{--<div class="container">--}}
+                {{--<div class="sec-title p-b-40">--}}
+                    {{--<h3 class="m-text5 t-left">--}}
+                        {{--Sản phẩm khuyến mãi--}}
+                    {{--</h3>--}}
+                {{--</div>--}}
+                {{--<div class="alert alert-success">--}}
+                    {{--Hiện không có sản phẩm khuyến mãi nào!--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
+    {{--@endif--}}
 
-    <!-- Product New-->
-    @if(Count($products_new) > 0)
-        <section class="product-sale bgpink p-t-45 p-b-40">
-            <div class="container">
-                <div class="sec-title p-b-40">
-                    <h3 class="m-text5 t-left">
-                        Sản phẩm mới
-                    </h3>
-                </div>
+    {{--<!-- Product New-->--}}
+    {{--@if(Count($products_new) > 0)--}}
+        {{--<section class="product-sale bgpink p-t-45 p-b-40">--}}
+            {{--<div class="container">--}}
+                {{--<div class="sec-title p-b-40">--}}
+                    {{--<h3 class="m-text5 t-left">--}}
+                        {{--Sản phẩm mới--}}
+                    {{--</h3>--}}
+                {{--</div>--}}
 
-                <!-- Slide2 -->
-                <div class="wrap-slick4">
-                    <div class="slick4">
-                        @foreach($products_new as $item)
-                            <div class="item-slick2 p-l-15 p-r-15">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">
-                                        <img src="{{$item->images}}" alt="IMG-PRODUCT"
-                                             style="height: 350px;object-fit: cover;">
-                                        <div class="block2-overlay trans-0-5">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
+                {{--<!-- Slide2 -->--}}
+                {{--<div class="wrap-slick4">--}}
+                    {{--<div class="slick4">--}}
+                        {{--@foreach($products_new as $item)--}}
+                            {{--<div class="item-slick2 p-l-15 p-r-15">--}}
+                                {{--<!-- Block2 -->--}}
+                                {{--<div class="block2">--}}
+                                    {{--<div class="block2-img wrap-pic-w of-hidden pos-relative{{$item->sale != 0 && $item->new != 1?' block2-labelsale':''}}{{$item->new == 1 && $item->sale == 0? ' block2-labelnew':''}}{{$item->sale != 0 && $item->new == 1 ? ' block2-labelsaleandnew' : ''}}">--}}
+                                        {{--<img src="{{$item->images}}" alt="IMG-PRODUCT"--}}
+                                             {{--style="height: 350px;object-fit: cover;">--}}
+                                        {{--<div class="block2-overlay trans-0-5">--}}
+                                            {{--<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-5">--}}
+                                                {{--<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>--}}
+                                                {{--<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>--}}
+                                            {{--</a>--}}
 
-                                            <div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"
-                                                 id="add-cart-{{$item->id}}">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 s-text1 trans-0-5">
-                                                    Thêm vào giỏ
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            {{--<div class="block2-btn-addcart w-size1 trans-0-5 add-to-cart"--}}
+                                                 {{--id="add-cart-{{$item->id}}">--}}
+                                                {{--<!-- Button -->--}}
+                                                {{--<button class="flex-c-m size1 bg4 bo-rad-23 s-text1 trans-0-5">--}}
+                                                    {{--Thêm vào giỏ--}}
+                                                {{--</button>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
-                                    <div class="block2-txt p-t-20">
-                                        <a href="/user/product/{{$item->id}}"
-                                           class="block2-name dis-block s-text3 p-b-5">
-                                            {{$item->name}}
-                                        </a>
-                                        @if($item->sale == 0)
-                                            <span class="block2-price m-text6 p-r-5">
-                                                {{number_format($item->price,0,',','.')}} <span
-                                                        style="text-transform: lowercase">vnđ</span>
-                                            </span>
-                                        @else
-                                            <span class="block2-price m-text6 p-r-5 text-decoration">
-                                                {{number_format($item->price,0,',','.')}} <span
-                                                        style="text-transform: lowercase">vnđ</span>
-                                            </span>
-                                            <span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">
-                                                {{$item->discountPriceString}}
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-    @else
-        <section class="product-sale bgpink p-t-45 p-b-40">
-            <div class="container">
-                <div class="sec-title p-b-40">
-                    <h3 class="m-text5 t-left">
-                        Sản phẩm mới
-                    </h3>
-                </div>
-                <div class="alert alert-success">
-                    Hiện không có sản phẩm mới!
-                </div>
-            </div>
-        </section>
-    @endif
+                                    {{--<div class="block2-txt p-t-20">--}}
+                                        {{--<a href="/user/product/{{$item->id}}"--}}
+                                           {{--class="block2-name dis-block s-text3 p-b-5">--}}
+                                            {{--{{$item->name}}--}}
+                                        {{--</a>--}}
+                                        {{--@if($item->sale == 0)--}}
+                                            {{--<span class="block2-price m-text6 p-r-5">--}}
+                                                {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                        {{--style="text-transform: lowercase">vnđ</span>--}}
+                                            {{--</span>--}}
+                                        {{--@else--}}
+                                            {{--<span class="block2-price m-text6 p-r-5 text-decoration">--}}
+                                                {{--{{number_format($item->price,0,',','.')}} <span--}}
+                                                        {{--style="text-transform: lowercase">vnđ</span>--}}
+                                            {{--</span>--}}
+                                            {{--<span class="block2-sale m-text6 p-r-5" style="color: #F8A300;text-transform: lowercase">--}}
+                                                {{--{{$item->discountPriceString}}--}}
+                                            {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
+    {{--@else--}}
+        {{--<section class="product-sale bgpink p-t-45 p-b-40">--}}
+            {{--<div class="container">--}}
+                {{--<div class="sec-title p-b-40">--}}
+                    {{--<h3 class="m-text5 t-left">--}}
+                        {{--Sản phẩm mới--}}
+                    {{--</h3>--}}
+                {{--</div>--}}
+                {{--<div class="alert alert-success">--}}
+                    {{--Hiện không có sản phẩm mới!--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
+    {{--@endif--}}
 
-    <!-- Banner2 -->
-    <section class="banner2 bgwhite" style="margin-left: -15px">
-        <div class="container-fluid effectImg">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="hov-img-zoom pos-relative">
-                        <div id="three-container"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{--<!-- Banner2 -->--}}
+    {{--<section class="banner2 bgwhite" style="margin-left: -15px">--}}
+        {{--<div class="container-fluid effectImg">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-sm-12 col-md-12 col-lg-12">--}}
+                    {{--<div class="hov-img-zoom pos-relative">--}}
+                        {{--<div id="three-container"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
-    <!-- Blog -->
-    <section class="blog bgwhite p-t-60 p-b-65">
-        <div class="container">
-            <div class="sec-title p-b-52">
-                <h3 class="m-text5 t-center">
-                    Bài viết
-                </h3>
-            </div>
+    {{--<!-- Blog -->--}}
+    {{--<section class="blog bgwhite p-t-60 p-b-65">--}}
+        {{--<div class="container">--}}
+            {{--<div class="sec-title p-b-52">--}}
+                {{--<h3 class="m-text5 t-center">--}}
+                    {{--Bài viết--}}
+                {{--</h3>--}}
+            {{--</div>--}}
 
-            <div class="row">
-                @foreach($articles as $item)
-                    <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-                        <!-- Block3 -->
-                        <div class="block3">
-                            <a href="{{route('blogClient').$item->id}}" class="block3-img dis-block hov-img-zoom">
-                                <img src="{{$item->images}}" alt="IMG-BLOG" style="object-fit: cover; max-width: 370px;max-height: 277px">
-                            </a>
+            {{--<div class="row">--}}
+                {{--@foreach($articles as $item)--}}
+                    {{--<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">--}}
+                        {{--<!-- Block3 -->--}}
+                        {{--<div class="block3">--}}
+                            {{--<a href="{{route('blogClient').$item->id}}" class="block3-img dis-block hov-img-zoom">--}}
+                                {{--<img src="{{$item->images}}" alt="IMG-BLOG" style="object-fit: cover; max-width: 370px;max-height: 277px">--}}
+                            {{--</a>--}}
 
-                            <div class="block3-txt p-t-14">
-                                <h4 class="p-b-7">
-                                    <a href="{{route('blogClient').'/'.$item->id}}" class="m-text11">
-                                        {{$item->title}}
-                                    </a>
-                                </h4>
+                            {{--<div class="block3-txt p-t-14">--}}
+                                {{--<h4 class="p-b-7">--}}
+                                    {{--<a href="{{route('blogClient').'/'.$item->id}}" class="m-text11">--}}
+                                        {{--{{$item->title}}--}}
+                                    {{--</a>--}}
+                                {{--</h4>--}}
 
-                                <span class="s-text6">Người đăng:</span> <span class="s-text7">SlowV</span> |
-                                <span class="s-text6">Ngày:</span> <span class="s-text7">{{$item->created_at->format('d-m-Y')}}</span>
+                                {{--<span class="s-text6">Người đăng:</span> <span class="s-text7">SlowV</span> |--}}
+                                {{--<span class="s-text6">Ngày:</span> <span class="s-text7">{{$item->created_at->format('d-m-Y')}}</span>--}}
 
-                                <p class="s-text8 p-t-16">
-                                    {{$item->content}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+                                {{--<p class="s-text8 p-t-16">--}}
+                                    {{--{{$item->content}}--}}
+                                {{--</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
-    <!-- Shipping -->
-    <section class="shipping bgwhite p-t-20 p-b-46">
-        <div class="flex-w p-l-15 p-r-15">
-            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-                <h4 class="m-text12 t-center">
+    {{--<!-- Shipping -->--}}
+    {{--<section class="shipping bgwhite p-t-20 p-b-46">--}}
+        {{--<div class="flex-w p-l-15 p-r-15">--}}
+            {{--<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">--}}
+                {{--<h4 class="m-text12 t-center">--}}
                     {{--Free Delivery Worldwide--}}
-                    Giao hàng miễn phí trên toàn quốc
-                </h4>
+                    {{--Giao hàng miễn phí trên toàn quốc--}}
+                {{--</h4>--}}
 
-                <a href="javascript:void (0)" class="s-text11 t-center">
-                    Cho tất cả các đơn hàng trên 1.000.000 vnđ
-                </a>
-            </div>
+                {{--<a href="javascript:void (0)" class="s-text11 t-center">--}}
+                    {{--Cho tất cả các đơn hàng trên 1.000.000 vnđ--}}
+                {{--</a>--}}
+            {{--</div>--}}
 
-            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
-                <h4 class="m-text12 t-center">
-                    Hoàn trả tùy thích
-                </h4>
+            {{--<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">--}}
+                {{--<h4 class="m-text12 t-center">--}}
+                    {{--Hoàn trả tùy thích--}}
+                {{--</h4>--}}
 
-                <span class="s-text11 t-center">
-					Đơn hàng trong vòng 14 ngày
-				</span>
-            </div>
+                {{--<span class="s-text11 t-center">--}}
+					{{--Đơn hàng trong vòng 14 ngày--}}
+				{{--</span>--}}
+            {{--</div>--}}
 
-            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-                <h4 class="m-text12 t-center">
-                    Thời gian mở
-                </h4>
+            {{--<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">--}}
+                {{--<h4 class="m-text12 t-center">--}}
+                    {{--Thời gian mở--}}
+                {{--</h4>--}}
 
-                <span class="s-text11 t-center">
-					Cửa hàng mở từ thứ 2 đến chủ nhật
-				</span>
-            </div>
-        </div>
-    </section>
+                {{--<span class="s-text11 t-center">--}}
+					{{--Cửa hàng mở từ thứ 2 đến chủ nhật--}}
+				{{--</span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 @endsection
 
 @section('selection')
