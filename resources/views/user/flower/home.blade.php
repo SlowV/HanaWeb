@@ -1,3 +1,4 @@
+{{dd('anh hoang')}}
 @extends('user.layouts.master')
 
 @section('page-title', 'Trang chủ - Hana Store')

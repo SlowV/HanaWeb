@@ -46,7 +46,7 @@ class UserController extends Controller
             $userClient = Session::get('user');
         }
 
-        return view('user.flower.home')
+        return view('user.flower.home');
 //            ->with([
 //                'collections', $collections,
 //                'products', $products,
@@ -59,13 +59,6 @@ class UserController extends Controller
 //                'articles' => $articles,
 //                'user' =>$userClient
 //            ]);
-        ->with('collections',$collections)
-        ->with('products', $products)
-        ->with('categories', $categories)
-        ->with('products_sale', $products_sale)
-            ->with('products_new', $products_new)
-            ->with('countItemCart', $countItemCart)->with('content', $content)->with('total',$total)->with('articles', $articles)
-            ->with('user', $userClient);
     }
 
 
