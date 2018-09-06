@@ -45,7 +45,8 @@ class UserController extends Controller
         if (Session::has('user')){
             $userClient = Session::get('user');
         }
-        return view('user.flower.home')->with('categories', $categories)->with('products', $products)->with('collections', $collections)->with(['products_sale' => $products_sale, 'products_new' => $products_new, 'countItemCart' => $countItemCart, 'content' => $content, 'total' => $total,
+        return view('user.flower.home')
+            ->with(['collections', $collections,'products', $products,'categories', $categories, 'products_sale' => $products_sale, 'products_new' => $products_new, 'countItemCart' => $countItemCart, 'content' => $content, 'total' => $total,
             'articles' => $articles,
             'user' =>$userClient
         ]);
