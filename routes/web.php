@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/1',function (){
+   return '1';
+});
+
 
 //Route dashboard admin
 Route::get('/admin', function (){
