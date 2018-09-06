@@ -41,22 +41,31 @@ class UserController extends Controller
         $products_new = Product::orderBy('created_at', 'DESC')->where('new', '=', 1)->where('status', 1)->get();
         $products = Product::orderBy('created_at', 'DESC')->where('status', 1)->paginate(16);
         $articles = Article::all();
+        $userClient = 0;
         if (Session::has('user')){
             $userClient = Session::get('user');
         }
+
         return view('user.flower.home')
-            ->with([
-                'collections', $collections,
-                'products', $products,
-                'categories', $categories,
-                'products_sale' => $products_sale,
-                'products_new' => $products_new,
-                'countItemCart' => $countItemCart,
-                'content' => $content,
-                'total' => $total,
-                'articles' => $articles,
-            ]
-        );
+//            ->with([
+//                'collections', $collections,
+//                'products', $products,
+//                'categories', $categories,
+//                'products_sale' => $products_sale,
+//                'products_new' => $products_new,
+//                'countItemCart' => $countItemCart,
+//                'content' => $content,
+//                'total' => $total,
+//                'articles' => $articles,
+//                'user' =>$userClient
+//            ]);
+        ->with('collections',$collections)
+        ->with('products', $products)
+        ->with('categories', $categories)
+        ->with('products_sale', $products_sale)
+            ->with('products_new', $products_new)
+            ->with('countItemCart', $countItemCart)->with('content', $content)->with('total',$total)->with('articles', $articles)
+            ->with('user', $userClient);
     }
 
 
@@ -91,7 +100,8 @@ class UserController extends Controller
                 'products' => $list_product,
                 'collections' => $collections,
                 'countItemCart' => $countItemCart,
-                'content' => $content, 'total' => $total,
+                'content' => $content,
+                'total' => $total,
                 'selected_categoryId' => $selected_categoryId,
                 'selected_category' => $selected_category,
                 'selected_collection' => $selected_collection,
@@ -145,7 +155,14 @@ class UserController extends Controller
         $countItemCart = Cart::count();
         $total = Cart::subtotal();
 
-        return view('user.flower.cart')->with(['categories' => $categories, 'collections' => $collections, 'content' => $content, 'total' => $total, 'countItemCart' => $countItemCart]);
+        return view('user.flower.cart')
+            ->with([
+                'categories' => $categories,
+                'collections' => $collections,
+                'content' => $content,
+                'total' => $total,
+                'countItemCart' => $countItemCart
+            ]);
     }
 
 
