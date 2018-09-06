@@ -47,25 +47,18 @@ class UserController extends Controller
         }
 
         return view('user.flower.home')
-//            ->with([
-//                'collections', $collections,
-//                'products', $products,
-//                'categories', $categories,
-//                'products_sale' => $products_sale,
-//                'products_new' => $products_new,
-//                'countItemCart' => $countItemCart,
-//                'content' => $content,
-//                'total' => $total,
-//                'articles' => $articles,
-//                'user' =>$userClient
-//            ]);
-        ->with('collections',$collections)
-        ->with('products', $products)
-        ->with('categories', $categories)
-        ->with('products_sale', $products_sale)
-            ->with('products_new', $products_new)
-            ->with('countItemCart', $countItemCart)->with('content', $content)->with('total',$total)->with('articles', $articles)
-            ->with('user', $userClient);
+            ->with([
+                'collections', $collections,
+                'products', $products,
+                'categories', $categories,
+                'products_sale' => $products_sale,
+                'products_new' => $products_new,
+                'countItemCart' => $countItemCart,
+                'content' => $content,
+                'total' => $total,
+                'articles' => $articles,
+                'user' =>$userClient
+            ]);
     }
 
 
