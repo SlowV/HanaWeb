@@ -33,7 +33,7 @@ class UserController extends Controller
         $content = Cart::content();
         $countItemCart = Cart::count();
         $total = Cart::subtotal();
-        dd(1);
+        dd('anh hoang');
         $categories = Category::all();
         $collections = Collection::all();
         $products_sale = Product::orderBy('created_at', 'DESC')->where('sale', '>', 0)->where('status', 1)->get();
