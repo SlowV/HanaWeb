@@ -46,7 +46,7 @@ class UserController extends Controller
             $userClient = Session::get('user');
         }
 
-        return view('user.flower.home')
+        return view('user.flower.product-list')
             ->with([
                 'collections', $collections,
                 'products', $products,
